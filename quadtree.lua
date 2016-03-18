@@ -123,10 +123,10 @@ function QuadTree:getCollidableObjects(object, moving)
 
         local near = {}
         for q in pairs(quads) do
-            for i,o in pairs(q:getCollidableObjects(object, moving)) do
+            for _,o in pairs(q:getCollidableObjects(object, moving)) do
                 -- Make sure we don't return the object itself
-                if i ~= object then
-                    table.insert(near, o)
+                if o ~= object then
+                    near[o] = o
                 end
             end
         end
